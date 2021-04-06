@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+spec:
+  selector:
+    app: redis-for-visit-counter
+  ports:
+    - port: 9000       # Porta acessível pelo restante do cluster
+      targetPort: 6379 # Porta interna no POD

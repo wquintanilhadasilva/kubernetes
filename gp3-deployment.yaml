@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gp3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gp3
+  template:
+    metadata:
+      labels:
+        app: gp3
+    spec:
+      containers:
+        - name: gp3
+          image: wquintanilhadasilva/gp3:1.0
+          env:
+            - name: "REDIS_HOST"
+              value: "redis-service"
+            - name: "REDIS_PORT"
+              value: "9000"
